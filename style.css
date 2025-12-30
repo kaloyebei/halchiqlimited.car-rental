@@ -1,0 +1,1665 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.navbar {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  transition: background-color 0.4s ease, background-image 0.4s ease;
+}
+#navbar.scrolled {
+  background-color: bisque;
+}
+.navSection {
+  display: flex;
+  width: 90%;
+  gap: 100px;
+  align-items: center;
+  justify-content: center;
+}
+.navbar .navSection .navlogo {
+  padding-top: 10px;
+  width: 40%;
+  align-items: center;
+  justify-content: center;
+  font-size: 2em;
+  color: rgb(100, 17, 17);
+  font-weight: 800;
+}
+.navbar .navSection .navText {
+  display: flex;
+  gap: 100px;
+}
+.navbar .navSection .navText h1 {
+  padding-top: 10px;
+  color: rgb(55, 34, 74);
+  font-size: 1.6em;
+  font-weight: 800;
+}
+.navbar .navSection .navText button {
+  font-size: 1.32em;
+  background-color: rgb(100, 17, 17);
+  border: none;
+  border-radius: 5px;
+  padding: 8px 12px;
+  transition: transform 0.3s ease;
+}
+.navbar .navSection .navText button:hover {
+  background-color: rgb(55, 34, 74);
+}
+.navbar .navSection .navText button a {
+  text-decoration: none;
+  color: white;
+}
+
+.section1 {
+  display: flex;
+  background-image: linear-gradient(
+      rgba(173, 216, 230, 0.384),
+      rgba(173, 216, 230, 0.4) 50%
+    ),
+    url("images/4.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding-top: 150px;
+}
+.section1 .sectiontext {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+.section1 .sectiontext h1 {
+  width: 58%;
+  padding-top: 60px;
+  color: beige;
+  font-size: 2.8em;
+  font-weight: 700;
+  text-align: center;
+  line-height: 150%;
+}
+.section1 .sectiontext .driverbutton {
+  width: 40%;
+  height: 33px;
+  display: flex;
+  background-color: bisque;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+}
+.section1 .sectiontext .driverbutton button {
+  font-size: 1.459em;
+  padding-top: 5px;
+  width: 100%;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 3px;
+  outline: none;
+  border-style: none;
+  background-color: rgb(55, 34, 74);
+  padding-bottom: 2px;
+  text-align: center;
+  color: bisque;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.section1 .sectiontext .driverbutton button:hover {
+  background-color: bisque;
+  color: rgb(100, 17, 17);
+  transform: scale(1.05);
+}
+.booksection {
+  display: flex;
+  width: 80%;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  padding-top: 50px;
+  background-color: aliceblue;
+  margin-bottom: 50px;
+}
+.booksection .booksection1 {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  padding-bottom: 50px;
+  margin: auto;
+}
+.booksection .booksection1 .rentcar {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  background-color: rgb(55, 34, 74);
+  align-items: center;
+  justify-content: center;
+  padding: 20px 20px;
+  border-radius: 5px;
+  width: 30%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+.booksection .booksection1 .rentcar h1 {
+  font-size: 1.6em;
+  color: bisque;
+  font-weight: bold;
+}
+#carName {
+  padding: 7px 5px;
+  width: 100%;
+  font-size: 1.5em;
+  font-weight: 500;
+  border: none;
+  border-radius: 3px;
+  color: rgb(100, 17, 17);
+  background-color: bisque;
+  cursor: pointer;
+}
+.booksection .booksection1 .rentcar label {
+  font-size: 1.6em;
+  font-weight: bold;
+  color: bisque;
+}
+.booksection .booksection1 .rentcar input {
+  width: 100%;
+  padding: 7px 5px;
+  font-size: 1.5em;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.booksection .booksection1 .rentcar .dateSection {
+  display: flex;
+  gap: 20px;
+  cursor: pointer;
+}
+.booksection .booksection1 .rentcar .timeSection {
+  display: flex;
+  gap: 20px;
+  cursor: pointer;
+}
+.booksection .booksection1 .rentcar button {
+  padding: 10px 20px;
+  font-size: 1.8em;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+  background-color: green;
+  color: bisque;
+  margin-bottom: 20px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.booksection .booksection1 .rentcar button:hover {
+  transform: scale(1.05);
+}
+.booksection .booksection1 .reservecar {
+  display: flex;
+  width: 50%;
+  align-items: center;
+  justify-content: center;
+  background-color: bisque;
+  flex-direction: column;
+  gap: 30px;
+  margin-left: -30px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  border-bottom-right-radius: 7px;
+  border-top-right-radius: 7px;
+}
+.booksection .booksection1 .reservecar h1 {
+  color: rgb(100, 17, 17);
+  font-size: 2.3em;
+  padding-top: 20px;
+}
+.booksection .booksection1 .reservecar .reserveitems {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+.booksection .booksection1 .reservecar .reserveitems .icon1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.booksection .booksection1 .reservecar .reserveitems .icon1 img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: solid 2px bisque;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+.booksection .booksection1 .reservecar .reserveitems .icon1 img:hover {
+  transform: scale(1.05);
+  opacity: 80%;
+}
+.booksection .booksection1 .reservecar .reserveitems .icon1 p {
+  font-size: 1.1em;
+  font-weight: 700;
+  color: rgb(55, 34, 74);
+  width: 80%;
+  text-align: center;
+  padding-bottom: 30px;
+}
+.booksection .booksection1 .reservecar button {
+  font-size: 1.5em;
+  padding: 9px 9px;
+  margin-bottom: 30px;
+  border: none;
+  border-radius: 7px;
+  background-color: black;
+  color: bisque;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.booksection .booksection1 .reservecar button:hover {
+  color: bisque;
+  background-color: green;
+  transform: scale(1.05);
+}
+.vans0 {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(55, 34, 74);
+  margin-top: 100px;
+}
+.vans0 .vans1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 85%;
+  padding-top: 50px;
+  gap: 40px;
+}
+.vans0 .vans1 h1 {
+  color: bisque;
+  font-size: 1.4em;
+  font-weight: 700;
+  text-align: center;
+}
+.vans0 .vans1 .vans2 {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+}
+.vans0 .vans1 .vans2 h2 {
+  color: white;
+  font-size: 2em;
+  font-weight: 600;
+  text-align: center;
+}
+.vans0 .vans1 .vans2 .vans3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  gap: 50px;
+  height: auto;
+  padding-top: 50px;
+}
+.vans0 .vans1 .vans2 .vans3 .vans4 {
+  display: flex;
+  flex-direction: column;
+  background-color: bisque;
+  border-radius: 3px;
+  width: 100%;
+  gap: 10px;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  margin-bottom: 80px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(237, 215, 252, 0.2);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.vans0 .vans1 .vans2 .vans3 .vans4:hover {
+  transform: scale(1.0852);
+}
+.vans0 .vans1 .vans2 .vans3 .vans4 img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
+.vans0 .vans1 .vans2 .vans3 .vans4 button {
+  background-color: bisque;
+  color: rgb(55, 34, 74);
+  font-size: 1.2em;
+  font-weight: 600;
+  padding-bottom: 30px;
+  border: none;
+  cursor: pointer;
+}
+.vans0 .vans1 .vans2 .vans3 .vans4 button a {
+  text-decoration: none;
+  color: rgb(55, 34, 74);
+}
+.aboutSection {
+  width: 100%;
+  display: flex;
+  margin-top: 70px;
+  align-items: center;
+  justify-content: center;
+  background-color: bisque;
+}
+.aboutSection .about1 {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 50px;
+}
+.aboutSection .about1 .about2 {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  gap: 50px;
+}
+.aboutSection .about1 .about2 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  padding-top: 150px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+.aboutSection .about1 .about2 img:hover {
+  opacity: 150% white;
+}
+.aboutSection .about1 .about2 .about3 {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: rgb(55, 34, 74);
+  gap: 30px;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 40px;
+  margin-top: 70px;
+  padding-top: 30px;
+}
+.aboutSection .about1 .about2 .about3 h1 {
+  color: bisque;
+  font-size: 1.2em;
+  font-weight: 700;
+  text-align: center;
+}
+.aboutSection .about1 .about2 .about3 h2 {
+  color: white;
+  font-size: 1.8em;
+  font-weight: 600;
+  text-align: center;
+}
+.aboutSection .about1 .about2 .about3 p {
+  color: bisque;
+  width: 80%;
+  line-height: 120%;
+  font-size: 1.2em;
+  font-weight: 500;
+  text-align: center;
+  text-align: justify;
+}
+.servicesSec {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  padding-bottom: 50px;
+}
+.servicesSec .servicesSec1 {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+}
+.servicesSec .servicesSec1 h1 {
+  font-size: 1.3em;
+  font-weight: 800;
+  color: rgb(9, 9, 193);
+}
+.servicesSec .servicesSec1 h2 {
+  font-size: 2.4em;
+  font-weight: 600;
+  color: rgb(24, 24, 24);
+}
+.servicesSec .servicesSec1 .servicesSec3 {
+  display: flex;
+  width: 100%;
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
+}
+.servicesSec .servicesSec1 .servicesSec3 .servicesSec4 {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  align-items: center;
+  justify-content: center;
+}
+.servicesSec .servicesSec1 .servicesSec3 .servicesSec4 img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+.servicesSec .servicesSec1 .servicesSec3 .servicesSec4 h3 {
+  font-size: 1.5em;
+  color: rgb(9, 9, 193);
+  font-weight: 600;
+}
+.servicesSec .servicesSec1 .servicesSec3 .servicesSec4 p {
+  font-size: 1.3em;
+  font-weight: 500;
+  align-items: center;
+  justify-content: center;
+  text-align: justify;
+  color: darkolivegreen;
+  padding-bottom: 30px;
+}
+footer {
+  width: 100%;
+  padding: 40px 0;
+  background-color: rgb(5, 88, 5);
+  align-items: center;
+  justify-content: center;
+}
+footer .two {
+  display: flex;
+  width: 80%;
+  align-items: center;
+  justify-content: center;
+}
+footer .two .logof {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+  justify-content: center;
+}
+footer .two .logof img {
+  width: 150px;
+  height: 130px;
+  border-radius: 50%;
+}
+footer .two .logof .navicons {
+  display: flex;
+  gap: 30px;
+  width: 30%;
+  align-items: center;
+  justify-content: center;
+  padding-left: 10px;
+}
+footer .two .logof.navicons i {
+  position: relative;
+  padding-top: 3px;
+  font-size: 2.5em;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  color: rgb(238, 109, 4);
+  padding-top: 7px;
+  width: 40px;
+  height: 42px;
+  border-radius: 50%;
+
+  background-color: blanchedalmond;
+}
+footer .two .logof.navicons i:hover {
+  background-color: bisque;
+  transform: scale(1.2);
+  color: white;
+  transition: transform 3ms ease;
+}
+@media (max-width: 360px) {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .navbar {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    transition: background-color 0.4s ease, background-image 0.4s ease;
+  }
+  #navbar.scrolled {
+    background-color: bisque;
+  }
+  .navSection {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+  }
+  .navbar .navSection .navlogo {
+    padding-top: 10px;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8em;
+    color: rgb(100, 17, 17);
+    font-weight: 800;
+    margin-bottom: -15px;
+  }
+  .navbar .navSection .navText {
+    display: flex;
+    gap: 8px;
+    padding-bottom: 10px;
+    flex-direction: column;
+  }
+  .navbar .navSection .navText h1 {
+    color: rgb(55, 34, 74);
+    font-size: 1.2em;
+    font-weight: 800;
+  }
+  .navbar .navSection .navText button {
+    font-size: 1em;
+    background-color: rgb(100, 17, 17);
+    border: none;
+    border-radius: 5px;
+    padding: 4px 8px;
+    transition: transform 0.3s ease;
+  }
+  .navbar .navSection .navText button:hover {
+    background-color: rgb(55, 34, 74);
+  }
+  .navbar .navSection .navText button a {
+    text-decoration: none;
+    color: white;
+  }
+  .section1 {
+    display: flex;
+    background-image: linear-gradient(
+        rgba(173, 216, 230, 0.384),
+        rgba(173, 216, 230, 0.4) 50%
+      ),
+      url("images/4.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+  .section1 .sectiontext {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+  }
+  .section1 .sectiontext h1 {
+    width: 97%;
+    padding-top: 30px;
+    color: beige;
+    font-size: 1.3em;
+    font-weight: 700;
+    text-align: center;
+    line-height: 120%;
+  }
+  .section1 .sectiontext .driverbutton {
+    width: 80vw;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    margin-bottom: 5px;
+  }
+  .section1 .sectiontext .driverbutton button {
+    font-size: 1em;
+    padding-top: 5px;
+    width: 100vw;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 3px;
+    outline: none;
+    border-style: none;
+    padding-bottom: 2px;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  .section1 .sectiontext .driverbutton button:hover {
+    transform: scale(1.05);
+  }
+  .booksection {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    padding-top: 50px;
+    margin-bottom: 50px;
+  }
+  .booksection .booksection1 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding-bottom: 50px;
+    margin: auto;
+  }
+  .booksection .booksection1 .rentcar {
+    display: flex;
+    flex-direction: column;
+    gap: 10x;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 10px;
+    border-radius: 5px;
+    width: 90%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  .booksection .booksection1 .rentcar h1 {
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  #carName {
+    padding: 5px 3px;
+    width: 100%;
+    font-size: 1.2em;
+    font-weight: 500;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  .booksection .booksection1 .rentcar label {
+    font-size: 1em;
+    font-weight: bold;
+  }
+  .booksection .booksection1 .rentcar input {
+    width: 100%;
+    padding: 5px 3px;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  .booksection .booksection1 .rentcar .dateSection {
+    display: flex;
+    gap: 10px;
+    cursor: pointer;
+  }
+  .booksection .booksection1 .rentcar .timeSection {
+    display: flex;
+    gap: 10px;
+    cursor: pointer;
+  }
+  .booksection .booksection1 .rentcar button {
+    padding: 5px 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  .booksection .booksection1 .rentcar button:hover {
+    transform: scale(1.05);
+  }
+  .booksection .booksection1 .reservecar {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 15px;
+    padding-bottom: 20px;
+    border-radius: 3px;
+    margin: auto;
+  }
+  .booksection .booksection1 .reservecar h1 {
+    color: black;
+    width: 90%;
+    font-size: 1.3em;
+    padding-top: 10px;
+    align-items: center;
+    justify-content: center;
+  }
+  .booksection .booksection1 .reservecar .reserveitems {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    justify-content: center;
+  }
+  .booksection .booksection1 .reservecar .reserveitems .icon1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+  }
+  .booksection .booksection1 .reservecar .reserveitems .icon1 img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  .booksection .booksection1 .reservecar .reserveitems .icon1 img:hover {
+    transform: scale(1.05);
+    opacity: 80%;
+  }
+  .booksection .booksection1 .reservecar .reserveitems .icon1 p {
+    font-size: 1em;
+    font-weight: 700;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 30px;
+  }
+  .booksection .booksection1 .reservecar button {
+    font-size: 1.2em;
+    padding: 6px 6px;
+    margin-bottom: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .booksection .booksection1 .reservecar button:hover {
+    transform: scale(1.05);
+  }
+  .vehicle {
+    display: flex;
+    width: 95vw;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+  }
+  .vehicle .vehicle1 {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 10px;
+    align-items: center;
+    justify-content: center;
+  }
+  .vehicle .vehicle1 h1 {
+    color: rgb(3, 3, 91);
+    font-size: 1.4em;
+    font-weight: 800;
+    padding-top: 10px;
+    line-height: 120%;
+  }
+  .vehicle .vehicle1 .vehicle2 {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    align-items: center;
+    justify-content: center;
+  }
+  .vehicle .vehicle1 .vehicle2 h1 {
+    padding: 10px 0px;
+    color: rgb(1, 88, 1);
+    font-size: 1.8em;
+    font-weight: 900;
+    align-items: center;
+    justify-content: center;
+  }
+  .vehicle .vehicle1 .vehicle2 .vehicleSection {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 20px;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    padding-bottom: 30px;
+  }
+  .vehicle .vehicle1 .vehicle2 .vehicleSection .vehicle3 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    background-color: aliceblue;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  .vehicle .vehicle1 .vehicle2 .vehicleSection .vehicle3 img {
+    height: 200px;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  .vehicle .vehicle1 .vehicle2 .vehicleSection .vehicle3 h2 {
+    color: green;
+    font-size: 1.1em;
+    font-weight: 800;
+    line-height: 120%;
+  }
+  .vehicle .vehicle1 .vehicle2 .vehicleSection .vehicle3 h3 {
+    color: blue;
+    font-size: 1.3em;
+    font-weight: 800;
+    line-height: 120%;
+  }
+  .vehicle .vehicle1 .vehicle2 .vehicleSection .vehicle3 .vbutton {
+    display: flex;
+    gap: 15px;
+    padding-bottom: 15px;
+  }
+  .vehicle .vehicle1 .vehicle2 .vehicleSection .vehicle3 .vbutton button {
+    padding: 8px 10px;
+    font-size: 1.3em;
+    border: none;
+    border-radius: 4px;
+    background-color: blue;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in, color 0.3s ease;
+  }
+  .vehicle .vehicle1 .vehicle2 .vehicleSection .vehicle3 .vbutton .b2 {
+    background-color: green;
+    color: bisque;
+    transition: background-color 0.3s ease-in, color 0.3s ease;
+  }
+  .vehicle .vehicle1 .vehicle2 .vehicleSection .vehicle3 .vbutton button:hover {
+    background-color: bisque;
+    color: blue;
+  }
+  .vehicle .vehicle1 .vehicle2 .vehicleSection .vehicle3 .vbutton .b2:hover {
+    background-color: black;
+    color: bisque;
+  }
+  aboutSection {
+    width: 100%;
+    display: flex;
+    margin-top: 20px;
+    align-items: center;
+    justify-content: center;
+    background-color: bisque;
+  }
+  .aboutSection .about1 {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 10px;
+  }
+  .aboutSection .about1 .about2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+  .aboutSection .about1 .about2 img {
+    width: 96vw;
+    height: 250px;
+    padding-top: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+  }
+  .aboutSection .about1 .about2 img:hover {
+    opacity: 150% white;
+  }
+  .aboutSection .about1 .about2 .about3 {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(3, 98, 3);
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 40px;
+    margin-top: 20px;
+    padding-top: 10px;
+  }
+  .aboutSection .about1 .about2 .about3 h1 {
+    color: bisque;
+    font-size: 1.1em;
+    font-weight: 700;
+    text-align: center;
+  }
+  .aboutSection .about1 .about2 .about3 h2 {
+    color: white;
+    font-size: 1.5em;
+    font-weight: 600;
+    text-align: center;
+  }
+  .aboutSection .about1 .about2 .about3 p {
+    color: bisque;
+    width: 90%;
+    line-height: 120%;
+    font-size: 0.9em;
+    font-weight: 500;
+    text-align: center;
+    text-align: justify;
+  }
+  .servicesSec {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    padding-bottom: 50px;
+  }
+  .servicesSec .servicesSec1 {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  .servicesSec .servicesSec1 h1 {
+    font-size: 1.3em;
+    font-weight: 800;
+    color: rgb(9, 9, 193);
+  }
+  .servicesSec .servicesSec1 h2 {
+    font-size: 2em;
+    font-weight: 600;
+    color: rgb(24, 24, 24);
+  }
+  .servicesSec .servicesSec1 .servicesSec3 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+  }
+  .servicesSec .servicesSec1 .servicesSec3 .servicesSec4 {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+  }
+  .servicesSec .servicesSec1 .servicesSec3 .servicesSec4 img {
+    width: 30vw;
+    height: 100px;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  .servicesSec .servicesSec1 .servicesSec3 .servicesSec4 h3 {
+    font-size: 1.5em;
+    color: rgb(9, 9, 193);
+    font-weight: 600;
+  }
+  .servicesSec .servicesSec1 .servicesSec3 .servicesSec4 p {
+    width: 96vw;
+    font-size: 1.1em;
+    font-weight: 500;
+    align-items: center;
+    justify-content: center;
+    text-align: justify;
+    color: darkolivegreen;
+    padding-bottom: 30px;
+  }
+  footer {
+    width: 100%;
+    padding: 40px 0;
+    background-color: rgb(5, 88, 5);
+    align-items: center;
+    justify-content: center;
+  }
+  footer .two {
+    display: flex;
+    width: 80%;
+    align-items: center;
+    justify-content: center;
+  }
+  footer .two .logof {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    justify-content: center;
+  }
+  footer .two .logof img {
+    width: 20vw;
+    height: 70px;
+    border-radius: 50%;
+  }
+}
+@media (max-width: 361px) and (max-width: 600px) {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .navbar {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    transition: background-color 0.4s ease, background-image 0.4s ease;
+  }
+  #navbar.scrolled {
+    background-color: bisque;
+  }
+  .navSection {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+  }
+  .navbar .navSection .navlogo {
+    padding-top: 10px;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8em;
+    color: rgb(100, 17, 17);
+    font-weight: 800;
+    margin-bottom: -15px;
+  }
+  .navbar .navSection .navText {
+    display: flex;
+    gap: 8px;
+    padding-bottom: 10px;
+    flex-direction: column;
+  }
+  .navbar .navSection .navText h1 {
+    color: rgb(55, 34, 74);
+    font-size: 1.2em;
+    font-weight: 800;
+  }
+  .navbar .navSection .navText button {
+    font-size: 1em;
+    background-color: rgb(100, 17, 17);
+    border: none;
+    border-radius: 5px;
+    padding: 4px 8px;
+    transition: transform 0.3s ease;
+  }
+  .navbar .navSection .navText button:hover {
+    background-color: rgb(55, 34, 74);
+  }
+  .navbar .navSection .navText button a {
+    text-decoration: none;
+    color: white;
+  }
+  .section1 {
+    display: flex;
+    background-image: linear-gradient(
+        rgba(173, 216, 230, 0.384),
+        rgba(173, 216, 230, 0.4) 50%
+      ),
+      url("images/4.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+  .section1 .sectiontext {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+  }
+  .section1 .sectiontext h1 {
+    width: 97%;
+    padding-top: 30px;
+    color: beige;
+    font-size: 1.3em;
+    font-weight: 700;
+    text-align: center;
+    line-height: 120%;
+  }
+  .section1 .sectiontext .driverbutton {
+    width: 80vw;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    margin-bottom: 5px;
+  }
+  .section1 .sectiontext .driverbutton button {
+    font-size: 1em;
+    padding-top: 5px;
+    width: 100vw;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 3px;
+    outline: none;
+    border-style: none;
+    padding-bottom: 2px;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  .section1 .sectiontext .driverbutton button:hover {
+    transform: scale(1.05);
+  }
+  .booksection {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    padding-top: 50px;
+    background-color: aliceblue;
+    margin-bottom: 50px;
+  }
+  .booksection .booksection1 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding-bottom: 50px;
+    margin: auto;
+  }
+  .booksection .booksection1 .rentcar {
+    display: flex;
+    flex-direction: column;
+    gap: 10x;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 10px;
+    border-radius: 5px;
+    width: 90%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  .booksection .booksection1 .rentcar h1 {
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  #carName {
+    padding: 5px 3px;
+    width: 100%;
+    font-size: 1.2em;
+    font-weight: 500;
+    border: none;
+    border-radius: 3px;
+    color: blue;
+    background-color: bisque;
+    cursor: pointer;
+  }
+  .booksection .booksection1 .rentcar label {
+    font-size: 1em;
+    font-weight: bold;
+    color: bisque;
+  }
+  .booksection .booksection1 .rentcar input {
+    width: 100%;
+    padding: 5px 3px;
+    font-size: 1.1em;
+    background-color: bisque;
+    color: blue;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  .booksection .booksection1 .rentcar .dateSection {
+    display: flex;
+    gap: 10px;
+    cursor: pointer;
+  }
+  .booksection .booksection1 .rentcar .timeSection {
+    display: flex;
+    gap: 10px;
+    cursor: pointer;
+  }
+  .booksection .booksection1 .rentcar button {
+    padding: 5px 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    background-color: green;
+    color: bisque;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  .booksection .booksection1 .rentcar button:hover {
+    background-color: bisque;
+    color: green;
+    transform: scale(1.05);
+  }
+  .booksection .booksection1 .reservecar {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    background-color: bisque;
+    flex-direction: column;
+    gap: 15px;
+    padding-bottom: 20px;
+    border-radius: 3px;
+    margin: auto;
+  }
+  .booksection .booksection1 .reservecar h1 {
+    color: black;
+    width: 90%;
+    font-size: 1.3em;
+    padding-top: 10px;
+    align-items: center;
+    justify-content: center;
+  }
+  .booksection .booksection1 .reservecar .reserveitems {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    justify-content: center;
+  }
+  .booksection .booksection1 .reservecar .reserveitems .icon1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+  }
+  .booksection .booksection1 .reservecar .reserveitems .icon1 img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: solid 2px bisque;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  .booksection .booksection1 .reservecar .reserveitems .icon1 img:hover {
+    transform: scale(1.05);
+    opacity: 80%;
+  }
+  .booksection .booksection1 .reservecar .reserveitems .icon1 p {
+    font-size: 1em;
+    font-weight: 700;
+    color: blue;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 30px;
+  }
+  .booksection .booksection1 .reservecar button {
+    font-size: 1.2em;
+    padding: 6px 6px;
+    margin-bottom: 18px;
+    border: none;
+    border-radius: 5px;
+    background-color: black;
+    color: bisque;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .booksection .booksection1 .reservecar button:hover {
+    color: bisque;
+    background-color: green;
+    transform: scale(1.05);
+  }
+  .vehicle {
+    display: flex;
+    width: 95vw;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+  }
+  .vehicle .vehicle1 {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 10px;
+    align-items: center;
+    justify-content: center;
+  }
+  .vehicle .vehicle1 h1 {
+    color: rgb(3, 3, 91);
+    font-size: 1.4em;
+    font-weight: 800;
+    padding-top: 10px;
+    line-height: 120%;
+  }
+  .vehicle .vehicle1 .vehicle2 {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    align-items: center;
+    justify-content: center;
+  }
+  .vehicle .vehicle1 .vehicle2 h1 {
+    padding: 10px 0px;
+    color: rgb(1, 88, 1);
+    font-size: 1.8em;
+    font-weight: 900;
+    align-items: center;
+    justify-content: center;
+  }
+  .vehicle .vehicle1 .vehicle2 .vehicleSection {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 20px;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    padding-bottom: 30px;
+  }
+  .vehicle .vehicle1 .vehicle2 .vehicleSection .vehicle3 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    background-color: aliceblue;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  .vehicle .vehicle1 .vehicle2 .vehicleSection .vehicle3 img {
+    height: 200px;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  .vehicle .vehicle1 .vehicle2 .vehicleSection .vehicle3 h2 {
+    color: green;
+    font-size: 1.1em;
+    font-weight: 800;
+    line-height: 120%;
+  }
+  .vehicle .vehicle1 .vehicle2 .vehicleSection .vehicle3 h3 {
+    color: blue;
+    font-size: 1.3em;
+    font-weight: 800;
+    line-height: 120%;
+  }
+  .vehicle .vehicle1 .vehicle2 .vehicleSection .vehicle3 .vbutton {
+    display: flex;
+    gap: 15px;
+    padding-bottom: 15px;
+  }
+  .vehicle .vehicle1 .vehicle2 .vehicleSection .vehicle3 .vbutton button {
+    padding: 8px 10px;
+    font-size: 1.3em;
+    border: none;
+    border-radius: 4px;
+    background-color: blue;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in, color 0.3s ease;
+  }
+  .vehicle .vehicle1 .vehicle2 .vehicleSection .vehicle3 .vbutton .b2 {
+    background-color: green;
+    color: bisque;
+    transition: background-color 0.3s ease-in, color 0.3s ease;
+  }
+  .vehicle .vehicle1 .vehicle2 .vehicleSection .vehicle3 .vbutton button:hover {
+    background-color: bisque;
+    color: blue;
+  }
+  .vehicle .vehicle1 .vehicle2 .vehicleSection .vehicle3 .vbutton .b2:hover {
+    background-color: black;
+    color: bisque;
+  }
+  aboutSection {
+    width: 100%;
+    display: flex;
+    margin-top: 20px;
+    align-items: center;
+    justify-content: center;
+    background-color: bisque;
+  }
+  .aboutSection .about1 {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 10px;
+  }
+  .aboutSection .about1 .about2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+  .aboutSection .about1 .about2 img {
+    width: 96vw;
+    height: 250px;
+    padding-top: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+  }
+  .aboutSection .about1 .about2 img:hover {
+    opacity: 150% white;
+  }
+  .aboutSection .about1 .about2 .about3 {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(3, 98, 3);
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 40px;
+    margin-top: 20px;
+    padding-top: 10px;
+  }
+  .aboutSection .about1 .about2 .about3 h1 {
+    color: bisque;
+    font-size: 1.1em;
+    font-weight: 700;
+    text-align: center;
+  }
+  .aboutSection .about1 .about2 .about3 h2 {
+    color: white;
+    font-size: 1.5em;
+    font-weight: 600;
+    text-align: center;
+  }
+  .aboutSection .about1 .about2 .about3 p {
+    color: bisque;
+    width: 90%;
+    line-height: 120%;
+    font-size: 0.9em;
+    font-weight: 500;
+    text-align: center;
+    text-align: justify;
+  }
+  .servicesSec {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    padding-bottom: 50px;
+  }
+  .servicesSec .servicesSec1 {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  .servicesSec .servicesSec1 h1 {
+    font-size: 1.3em;
+    font-weight: 800;
+    color: rgb(9, 9, 193);
+  }
+  .servicesSec .servicesSec1 h2 {
+    font-size: 2em;
+    font-weight: 600;
+    color: rgb(24, 24, 24);
+  }
+  .servicesSec .servicesSec1 .servicesSec3 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+  }
+  .servicesSec .servicesSec1 .servicesSec3 .servicesSec4 {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+  }
+  .servicesSec .servicesSec1 .servicesSec3 .servicesSec4 img {
+    width: 30vw;
+    height: 100px;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  .servicesSec .servicesSec1 .servicesSec3 .servicesSec4 h3 {
+    font-size: 1.5em;
+    color: rgb(9, 9, 193);
+    font-weight: 600;
+  }
+  .servicesSec .servicesSec1 .servicesSec3 .servicesSec4 p {
+    width: 96vw;
+    font-size: 1.1em;
+    font-weight: 500;
+    align-items: center;
+    justify-content: center;
+    text-align: justify;
+    color: darkolivegreen;
+    padding-bottom: 30px;
+  }
+  footer {
+    width: 100%;
+    padding: 40px 0;
+    background-color: rgb(5, 88, 5);
+    align-items: center;
+    justify-content: center;
+  }
+  footer .two {
+    display: flex;
+    width: 80%;
+    align-items: center;
+    justify-content: center;
+  }
+  footer .two .logof {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    justify-content: center;
+  }
+  footer .two .logof img {
+    width: 20vw;
+    height: 70px;
+    border-radius: 50%;
+  }
+}
+@media (max-width: 600px) {
+  .vans0 {
+    padding-top: 30px;
+  }
+
+  .vans0 .vans1 {
+    width: 95%;
+    gap: 20px;
+    padding-top: 20px;
+  }
+
+  .vans0 .vans1 h1 {
+    font-size: 1.2em;
+    text-align: center;
+  }
+
+  .vans0 .vans1 .vans2 h2 {
+    font-size: 1.5em;
+    text-align: center;
+  }
+
+  .vans0 .vans1 .vans2 .vans3 {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .vans0 .vans1 .vans2 .vans3 .vans4 {
+    width: 80%;
+    aspect-ratio: auto;
+  }
+
+  .vans0 .vans1 .vans2 .vans3 .vans4 img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+
+  .vans0 .vans1 .vans2 .vans3 .vans4 button {
+    font-size: 1em;
+    padding: 8px 10px;
+    margin-bottom: 15px;
+  }
+}
+@media (max-width: 767px) {
+  .vans0 {
+    margin-top: 60px;
+  }
+
+  .vans0 .vans1 {
+    width: 95%;
+    padding-top: 30px;
+    gap: 25px;
+  }
+
+  .vans0 .vans1 h1 {
+    font-size: 1.2em;
+  }
+
+  .vans0 .vans1 .vans2 h2 {
+    font-size: 1.5em;
+  }
+
+  .vans0 .vans1 .vans2 .vans3 {
+    width: 100%;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 30px;
+  }
+
+  .vans0 .vans1 .vans2 .vans3 .vans4 {
+    width: 90%;
+    margin-bottom: 30px;
+    aspect-ratio: auto;
+  }
+
+  .vans0 .vans1 .vans2 .vans3 .vans4 button {
+    font-size: 1em;
+    padding-bottom: 20px;
+  }
+}

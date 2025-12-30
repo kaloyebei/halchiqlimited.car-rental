@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta
+      name="description"
+      content="computing school and computer courses school in western kenya"
+    />
+    <title>HALCHIQ CAR RENTALS</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <script type="module" src="script.js" defer></script>
+    <script type="module" src="supabase.js" defer></script>
+
+    <style>
+    #fleetUpload {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #f7f7f7;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Heading */
+#fleetUpload h3 {
+  font-size: 2rem;
+  color: #5a0b0b;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Label styling */
+#fleetUpload label {
+  font-size: 1.1rem;
+  color: #5a0b0b;
+  align-self: flex-start;
+}
+
+/* Flex container for file input and button */
+#fleetUpload .file-upload-group {
+  display: flex;
+  flex-direction: column; /* Stack vertically */
+  gap: 15px;
+  width: 100%;
+  align-items: center;
+}
+#fleetUpload select {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  color: #5a0b0b;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#fleetUpload select:hover,
+#fleetUpload select:focus {
+  border-color: #7c1313;
+  box-shadow: 0 0 5px rgba(124, 19, 19, 0.5);
+  outline: none;
+}
+/* File Input */
+#fleetUpload input[type="file"] {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  width: 100%;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+/* Upload Button */
+#fleetUpload button {
+  padding: 12px 25px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(45deg, #5a0b0b, #7c1313);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+#fleetUpload button:hover {
+  background: linear-gradient(45deg, #7c1313, #5a0b0b);
+  transform: scale(1.03);
+}
+
+/* Info text */
+#fleetUpload p {
+  font-size: 0.9rem;
+  color: #333;
+  text-align: center;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+  #fleetUpload {
+    width: 90%;
+    padding: 20px;
+    gap: 15px;
+  }
+
+  #fleetUpload h3 {
+    font-size: 1.6rem;
+  }
+
+  #fleetUpload input[type="file"] {
+    font-size: 0.95rem;
+    padding: 10px;
+  }
+
+  #fleetUpload button {
+    font-size: 1rem;
+    padding: 12px 0;
+  }
+    #fleetUpload select {
+    font-size: 0.95rem;
+    padding: 8px;
+  }
+
+
+  #fleetUpload p {
+    font-size: 0.85rem;
+  }
+}
+    </style>
+
+  </head>
+  <body>
+    <div class="navbar" id="navbar">
+      <div class="navSection">
+        <div class="navlogo">HALCHIQ LIMITED</div>
+        <div class="navText">
+          <h1>CAR RENTAL - +254 721 394672</h1>
+          <button><a href="admin.html">Admin Login</a></button>
+        </div>
+      </div>
+    </div>
+    <div class="section1">
+      <div class="section">
+        <div class="sectiontext">
+          <h1>The Most Reliable Way to Rent,Lease or Hire a Car in kenya</h1>
+          <div class="driverbutton">
+            <button type="submit">Drive Yourself</button>
+            <button type="submit">Chauffeur</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="booksection">
+      <div class="booksection1">
+        <div class="rentcar">
+          <h1>Make your trip</h1>
+          <select id="carName" required>
+            <option value="">Select the make of the car</option>
+            <option value="Axio">Axio</option>
+            <option value="Harrier">Harrier</option>
+            <option value="V8">V8</option>
+            <option value="Vitz">Vitz</option>
+            <option value="Prado">Prado</option>
+            <option value="Rav4">Rav4</option>
+            <option value="Xtrail">Xtrail</option>
+            <option value="Noah">Noah</option>
+            <option value="Subaru">Subaru</option>
+            <option value="Premio">Premio</option>
+            <option value="22-33 Seater buses">22-33 Seater buses</option>
+            <option value="8 - 16 seater vans">8-16 Seater Vans</option>
+            <option value="Safari Landcruiser">Safari Landcruiser</option>
+          </select>
+          <div class="dateSection">
+            <div>
+              <label>Pick Up Date</label>
+              <input type="date" value="" id="pickDate" required />
+            </div>
+            <div>
+              <label>Drop Off Date</label>
+              <input type="date" value="" id="dropDate" required />
+            </div>
+          </div>
+          <div class="timeSection">
+            <div>
+              <label>Pick Up Time</label>
+              <input type="time" value="" id="pickupTime" required />
+            </div>
+            <div>
+              <label>Drop Off Time</label>
+              <input type="time" value="" id="dropTime" required />
+            </div>
+          </div>
+          <label>Pick-up location</label>
+          <input
+            type="text"
+            id="pickupLocation"
+            placeholder="City, Airport, Station, etc"
+            required
+          />
+          <label>Drop-off location</label>
+          <input
+            type="text"
+            id="dropLocation"
+            placeholder="City, Airport, Station, etc"
+            required
+          />
+          <button class="rent-btn">Rent A Car Now</button>
+        </div>
+        <div class="reservecar">
+          <h1>Better Way to Rent Your Perfect Cars</h1>
+          <div class="reserveitems">
+            <div class="icon1">
+              <img src="images/10.jpg" alt="" />
+              <p>Select your desired Vehicle</p>
+            </div>
+            <div class="icon1">
+              <img src="images/06.jpg" alt="" />
+              <p>Choose the date and pick-up location</p>
+            </div>
+            <div class="icon1">
+              <img src="images/14.jpg" alt="" />
+              <p>Reserve Your Rental Car</p>
+            </div>
+          </div>
+          <button type="button">Reserve Your Perfect Car</button>
+        </div>
+      </div>
+    </div>
+    <div class="vans0">
+      <div class="vans1">
+        <h1>OUR FLEET</h1>
+        <div class="vans2">
+          <h2>Featured Vehicles</h2>
+          <div class="vans3">
+            <div class="vans4">
+              <img src="images/suv.png" alt="" />
+              <button><a href="cars.html" target="_blank">View All CARS> </a></button>
+            </div>
+            <div class="vans4">
+              <img src="images/car.png" alt="" />
+              <button><a href="suv.html" target="_blank">View All SUVS > </a></button>
+            </div>
+              <div class="vans4">
+                <img src="images/van.png" alt="" />
+                <button><a href="vans.html" target="_blank">View All VANS > </a></button>
+              </div>
+            </a>
+            <div class="vans4">
+              <img src="images/bs1.png" alt="" />
+              <button><a href="vans.html" target="_blank">View All BUSES > </a></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="fleetUpload">
+  <h3>UPLOAD YOUR BOOKING DOCUMENTS</h3>
+
+  <label for="docType">Document Type:</label>
+  <select id="docType">
+    <option>Select Form</option>
+    <option value="booking_forms">Booking Form</option>
+    <option value="id_passport">ID / Passport</option>
+    <option value="driving_license">Driving License</option>
+  </select>
+  <br /><br />
+<div class="file-upload-group">
+  <input type="file" id="fleetFileInput" />
+  <button id="uploadFleetBtn" type="button">Upload</button>
+  <p>Allowed file types: PDF, JPG, JPEG, PNG</p>
+  </div>
+</div>
+
+
+    <div class="aboutSection">
+      <div class="about1">
+        <div class="about2">
+          <img src="images/car.png" alt="" />
+          <div class="about3">
+            <h1>ABOUT US</h1>
+            <h2>Welcome to Halchiq Car Rental Limited</h2>
+            <p>
+              At Halchiq Car Rentals, we are committed to redefining
+              transportation convenience across Kenya by offering reliable,
+              affordable, and premium car hire services. Whether you need a
+              vehicle for self-drive, business travel, airport transfers,
+              special events, or long-term leasing, we provide a wide range of
+              well-maintained options—from compact cars to SUVs, vans, and
+              executive vehicles. Our goal is to ensure every client enjoys a
+              smooth, secure, and comfortable travel experience backed by
+              excellent customer service and transparent pricing. With years of
+              experience in the transport industry, we continue to prioritize
+              safety, professionalism, and quality in every service we deliver.
+              Our team works around the clock to meet your travel needs
+              promptly, offering flexible booking, customizable rental plans,
+              and trusted drivers where needed. At Halchiq, we believe your
+              journey matters, and we are dedicated to providing the ideal
+              vehicle and support to make every trip unforgettable.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="servicesSec">
+      <div class="servicesSec1">
+        <h1>Services</h1>
+        <h2>Our Latest Services</h2>
+        <div class="servicesSec3">
+          <div class="servicesSec4">
+            <img src="images/04.jpg" alt="" />
+            <h3>Wedding Ceremony</h3>
+            <p>
+              Make your special day elegant and memorable with our premium
+              wedding car rental service. We provide clean, stylish, and
+              comfortable vehicles for bridal convoys, photography, and guest
+              transportation. Our professional drivers ensure timely arrivals
+              and smooth coordination for a stress-free celebration.
+            </p>
+          </div>
+          <div class="servicesSec4">
+            <img src="images/09.jpg" alt="" />
+            <h3>City Transfer</h3>
+            <p>
+              Move around the city with ease using our convenient and reliable
+              city transfer service. Whether you're attending meetings, running
+              errands, or exploring the town, our fleet offers comfortable rides
+              and trusted drivers committed to timely service.
+            </p>
+          </div>
+          <div class="servicesSec4">
+            <img src="images/10.jpg" alt="" />
+            <h3>Airport Transfer</h3>
+            <p>
+              Enjoy seamless airport pickups and drop-offs with our punctual
+              airport transfer service. We track flight schedules, assist with
+              luggage, and ensure you reach the airport or your destination
+              without delays. Whether solo or in a group, expect a smooth,
+              comfortable journey.
+            </p>
+          </div>
+          <div class="servicesSec4">
+            <img src="images/16.jpg" alt="" />
+            <h3>Whole City Tour</h3>
+            <p>
+              Discover the beauty of the city with our guided tour car rental.
+              We take you to top attractions, landmarks, and hidden gems while
+              you enjoy a relaxed, comfortable ride. Perfect for families,
+              tourists, and groups exploring new places.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <div class="two">
+        <div class="logof">
+          <img src="images/22.jpg" alt="" />
+          <div class="navicons">
+            <a href="https://wa.me/+254721" target="_blank" class="whatsapp">
+              <i class="fa-brands fa-whatsapp"></i>
+            </a>
+            <a
+              href="https://facebook.com/YourPageName"
+              target="_blank"
+              class="facebook"
+            >
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a
+              href="https://x.com/YourUsername"
+              target="_blank"
+              class="twitter"
+            >
+              <i class="fa-brands fa-x-twitter"></i>
+            </a>
+            <a
+              href="https://instagram.com/YourUsername"
+              target="_blank"
+              class="instagram"
+            >
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
