@@ -1049,7 +1049,7 @@ footer .two .logof.navicons i:hover {
     border-radius: 50%;
   }
 }
-@media (max-width: 361px) and (max-width: 600px) {
+@media (min-width: 361px) and (max-width: 600px) {
   * {
     margin: 0;
     padding: 0;
@@ -1663,4 +1663,5 @@ footer .two .logof.navicons i:hover {
     padding-bottom: 20px;
   }
 }
+
 
