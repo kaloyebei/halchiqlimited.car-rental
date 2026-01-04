@@ -115,7 +115,7 @@ async function loadUploadedFiles() {
       deleteBtn.addEventListener("click", async () => {
         const { error } = await supabase.storage
           .from("documents")
-          .remove(`[fleet/${folder}/${file.name}]`);
+          .remove([`fleet/${folder}/${file.name}`]);
         if (error) return alert("Delete failed: " + error.message);
 
         alert("File deleted!");
@@ -135,3 +135,4 @@ async function loadUploadedFiles() {
 // No auto-restoration: admin must log in each time
 loginForm.style.display = "block";
 adminPanel.style.display = "none";
+
