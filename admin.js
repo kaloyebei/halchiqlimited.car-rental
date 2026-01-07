@@ -1,21 +1,36 @@
 import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
 
-// --- Supabase config ---
+/* ================= SUPABASE CONFIG ================= */
 const SUPABASE_URL = "https://znngixswuvsumxycohcj.supabase.co";
 const SUPABASE_ANON_KEY =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpubmdpeHN3dXZzdW14eWNvaGNqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjY5MzI2MjUsImV4cCI6MjA4MjUwODYyNX0.QR4ZI_grVqueuo_KucdvypzbpTDYx4stAHnep6Hx2i0"; // Replace with your anon/public key
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpubmdpeHN3dXZzdW14eWNvaGNqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjY5MzI2MjUsImV4cCI6MjA4MjUwODYyNX0.QR4ZI_grVqueuo_KucdvypzbpTDYx4stAHnep6Hx2i0";
+
 export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-// --- DOM elements ---
+/* ================= DOM ELEMENTS ================= */
 const loginForm = document.getElementById("adminLoginForm");
 const adminPanel = document.getElementById("adminPanel");
 const fileList = document.getElementById("fileList");
-const logoutBtn = document.getElementById("logoutBtn"); // Add a button with id="logoutBtn" in HTML
+const logoutBtn = document.getElementById("logoutBtn");
 
-// Subfolders under fleet
+/* ===== MODAL ELEMENTS ===== */
+const previewModal = document.getElementById("previewModal");
+const previewContainer = document.getElementById("previewContainer");
+const filePreview = document.getElementById("filePreview");
+const modalTitle = document.getElementById("modalTitle");
+const confirmDownload = document.getElementById("confirmDownload");
+const confirmDelete = document.getElementById("confirmDelete");
+const cancelAction = document.getElementById("cancelAction");
+const closeModal = document.getElementById("closeModal");
+
+/* ================= GLOBAL STATE ================= */
+let currentFile = null;
+let currentFolder = null;
+
+/* ================= STORAGE FOLDERS ================= */
 const folders = ["booking_forms", "id_passport", "driving_license"];
 
-// --- Admin login ---
+/* ================= ADMIN LOGIN ================= */
 loginForm.addEventListener("submit", async (e) => {
   e.preventDefault();
 
@@ -27,46 +42,47 @@ loginForm.addEventListener("submit", async (e) => {
       email,
       password,
     });
+
     if (error) throw error;
 
-    // Clear form
     loginForm.reset();
     loginForm.style.display = "none";
     adminPanel.style.display = "block";
 
-    // Store session temporarily in sessionStorage
-    const sessionData = {
-      session: data.session,
-      timestamp: Date.now(),
-    };
-    sessionStorage.setItem("admin_session", JSON.stringify(sessionData));
+    sessionStorage.setItem(
+      "admin_session",
+      JSON.stringify({ session: data.session, time: Date.now() })
+    );
 
-    alert("Login successful!");
-    await loadUploadedFiles();
+    alert("Login successful");
+    loadUploadedFiles();
 
-    // Auto logout after 10 minutes
-    setTimeout(() => {
-      logoutAdmin("Session expired due to inactivity.");
-    }, 10 * 60 * 1000);
+    setTimeout(() => logoutAdmin("Session expired."), 10 * 60 * 1000);
   } catch (err) {
     alert("Login failed: " + err.message);
   }
 });
 
-// --- Logout function ---
-function logoutAdmin(message = "Logged out successfully.") {
+/* ================= LOGOUT ================= */
+function logoutAdmin(message = "Logged out") {
   sessionStorage.removeItem("admin_session");
-  loginForm.style.display = "block";
   adminPanel.style.display = "none";
+  loginForm.style.display = "block";
   alert(message);
 }
 
-// --- Logout button click ---
-logoutBtn.addEventListener("click", () => {
-  logoutAdmin();
-});
+logoutBtn.addEventListener("click", logoutAdmin);
 
-// --- Load files from all folders ---
+/* ================= MODAL CONTROLS ================= */
+closeModal.addEventListener("click", closePreview);
+cancelAction.addEventListener("click", closePreview);
+
+function closePreview() {
+  previewModal.style.display = "none";
+  previewContainer.innerHTML = "";
+}
+
+/* ================= LOAD FILES ================= */
 async function loadUploadedFiles() {
   fileList.innerHTML = "";
 
@@ -75,16 +91,11 @@ async function loadUploadedFiles() {
       .from("documents")
       .list(`fleet/${folder}`);
 
-    if (error) {
-      console.error(`Error fetching files in ${folder}:`, error.message);
-      continue;
-    }
+    if (error || !files?.length) continue;
 
-    if (!files || files.length === 0) continue;
-
-    const folderHeading = document.createElement("h4");
-    folderHeading.textContent = folder.replace("_", " ").toUpperCase();
-    fileList.appendChild(folderHeading);
+    const heading = document.createElement("h4");
+    heading.textContent = folder.replace("_", " ").toUpperCase();
+    fileList.appendChild(heading);
 
     const ul = document.createElement("ul");
 
@@ -92,38 +103,51 @@ async function loadUploadedFiles() {
       const li = document.createElement("li");
       li.textContent = file.name + " ";
 
-      // Download button
-      const downloadBtn = document.createElement("button");
-      downloadBtn.textContent = "Download";
-      downloadBtn.addEventListener("click", async () => {
+      /* ===== PREVIEW BUTTON ===== */
+      const previewBtn = document.createElement("button");
+      previewBtn.textContent = "Preview";
+
+      previewBtn.addEventListener("click", async () => {
+        currentFile = file.name;
+        currentFolder = folder;
+        modalTitle.textContent = `Preview: ${file.name}`;
+
         const { data, error } = await supabase.storage
           .from("documents")
           .download(`fleet/${folder}/${file.name}`);
-        if (error) return alert("Download failed: " + error.message);
+
+        if (error) return alert("Preview failed");
 
         const url = URL.createObjectURL(data);
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = file.name;
-        a.click();
-        URL.revokeObjectURL(url);
+        previewContainer.innerHTML = "";
+
+        const ext = file.name.split(".").pop().toLowerCase();
+
+        /* ===== IMAGE PREVIEW ===== */
+        if (["jpg", "jpeg", "png", "gif", "webp"].includes(ext)) {
+          const img = document.createElement("img");
+          img.src = url;
+          img.style.maxWidth = "100%";
+          img.style.maxHeight = "100%";
+          img.style.objectFit = "contain";
+          previewContainer.appendChild(img);
+        } else if (ext === "pdf") {
+          /* ===== PDF PREVIEW ===== */
+          const iframe = document.createElement("iframe");
+          iframe.src = url;
+          iframe.style.width = "100%";
+          iframe.style.height = "100%";
+          iframe.style.border = "none";
+          previewContainer.appendChild(iframe);
+        } else {
+          /* ===== UNSUPPORTED ===== */
+          previewContainer.innerHTML = "<p>No preview available.</p>";
+        }
+
+        previewModal.style.display = "flex";
       });
 
-      // Delete button
-      const deleteBtn = document.createElement("button");
-      deleteBtn.textContent = "Delete";
-      deleteBtn.addEventListener("click", async () => {
-        const { error } = await supabase.storage
-          .from("documents")
-          .remove([`fleet/${folder}/${file.name}`]);
-        if (error) return alert("Delete failed: " + error.message);
-
-        alert("File deleted!");
-        loadUploadedFiles(); // Refresh list
-      });
-
-      li.appendChild(downloadBtn);
-      li.appendChild(deleteBtn);
+      li.appendChild(previewBtn);
       ul.appendChild(li);
     });
 
@@ -131,8 +155,41 @@ async function loadUploadedFiles() {
   }
 }
 
-// --- Always show login form first ---
-// No auto-restoration: admin must log in each time
+/* ================= DOWNLOAD ================= */
+confirmDownload.addEventListener("click", async () => {
+  if (!currentFile || !currentFolder) return;
+
+  const { data, error } = await supabase.storage
+    .from("documents")
+    .download(`fleet/${currentFolder}/${currentFile}`);
+
+  if (error) return alert("Download failed");
+
+  const url = URL.createObjectURL(data);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = currentFile;
+  a.click();
+  URL.revokeObjectURL(url);
+
+  closePreview();
+});
+
+/* ================= DELETE ================= */
+confirmDelete.addEventListener("click", async () => {
+  if (!currentFile || !currentFolder) return;
+
+  const { error } = await supabase.storage
+    .from("documents")
+    .remove([`fleet/${currentFolder}/${currentFile}`]);
+
+  if (error) return alert("Delete failed");
+
+  alert("File deleted");
+  closePreview();
+  loadUploadedFiles();
+});
+
+/* ================= INITIAL STATE ================= */
 loginForm.style.display = "block";
 adminPanel.style.display = "none";
-
